@@ -26,24 +26,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class KinesisMessageModel implements Serializable {
 
-    public int userid;
-    public String username;
-    public String firstname;
-    public String lastname;
-    public String city;
-    public String state;
-    public String email;
-    public String phone;
-    public boolean likesports;
-    public boolean liketheatre;
-    public boolean likeconcerts;
-    public boolean likejazz;
-    public boolean likeclassical;
-    public boolean likeopera;
-    public boolean likerock;
-    public boolean likevegas;
-    public boolean likebroadway;
-    public boolean likemusicals;
+    public String devicename;
+    public String timestamp;
+    public String value;
 
     /**
      * Default constructor for Jackson JSON mapper - uses bean pattern.
@@ -56,11 +41,11 @@ public class KinesisMessageModel implements Serializable {
      * 
      * @param userid
      *        Sample int data field
-     * @param username
+     * @param devicename
      *        Sample String data field
-     * @param firstname
+     * @param timestamp
      *        Sample String data field
-     * @param lastname
+     * @param value
      *        Sample String data field
      * @param city
      *        Sample String data field
@@ -91,42 +76,14 @@ public class KinesisMessageModel implements Serializable {
      * @param likemusicals
      *        Sample boolean data field
      */
-    public KinesisMessageModel(int userid,
-            String username,
-            String firstname,
-            String lastname,
-            String city,
-            String state,
-            String email,
-            String phone,
-            boolean likesports,
-            boolean liketheatre,
-            boolean likeconcerts,
-            boolean likejazz,
-            boolean likeclassical,
-            boolean likeopera,
-            boolean likerock,
-            boolean likevegas,
-            boolean likebroadway,
-            boolean likemusicals) {
-        this.userid = userid;
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.city = city;
-        this.state = state;
-        this.email = email;
-        this.phone = phone;
-        this.likesports = likesports;
-        this.liketheatre = liketheatre;
-        this.likeconcerts = likeconcerts;
-        this.likejazz = likejazz;
-        this.likeclassical = likeclassical;
-        this.likeopera = likeopera;
-        this.likerock = likerock;
-        this.likevegas = likevegas;
-        this.likebroadway = likebroadway;
-        this.likemusicals = likemusicals;
+    public KinesisMessageModel(
+            String devicename,
+            String timestamp,
+            String value
+            ) {
+        this.devicename = devicename;
+        this.timestamp = timestamp;
+        this.value = value;
     }
 
     @Override
@@ -139,369 +96,70 @@ public class KinesisMessageModel implements Serializable {
     }
 
     /**
-     * Getter for userid
+     * Getter for devicename
      * 
-     * @return userid
+     * @return devicename
      */
-    public int getUserid() {
-        return userid;
+
+    public String getDevicename() {
+        return devicename;
     }
 
     /**
-     * Setter for userid
+     * Setter for devicename
      * 
-     * @param userid
-     *        Value for userid
+     * @param devicename
+     *        Value for devicename
      */
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setDevicename(String devicename) {
+        this.devicename = devicename;
     }
 
     /**
-     * Getter for username
+     * Getter for timestamp
      * 
-     * @return username
+     * @return timestamp
      */
-    public String getUsername() {
-        return username;
+    public String getTimestamp() {
+        return timestamp;
     }
 
     /**
-     * Setter for username
+     * Setter for timestamp
      * 
-     * @param username
-     *        Value for username
+     * @param timestamp
+     *        Value for timestamp
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
     /**
-     * Getter for firstname
+     * Getter for value
      * 
-     * @return firstname
+     * @return value
      */
-    public String getFirstname() {
-        return firstname;
+    public String getValue() {
+        return value;
     }
 
     /**
-     * Setter for firstname
+     * Setter for value
      * 
-     * @param firstname
-     *        Value for firstname
+     * @param value
+     *        Value for value
      */
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    /**
-     * Getter for lastname
-     * 
-     * @return lastname
-     */
-    public String getLastname() {
-        return lastname;
-    }
-
-    /**
-     * Setter for lastname
-     * 
-     * @param lastname
-     *        Value for lastname
-     */
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    /**
-     * Getter for city
-     * 
-     * @return city
-     */
-    public String getCity() {
-        return city;
-    }
-
-    /**
-     * Setter for city
-     * 
-     * @param city
-     *        Value for city
-     */
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    /**
-     * Getter for state
-     * 
-     * @return state
-     */
-    public String getState() {
-        return state;
-    }
-
-    /**
-     * Setter for state
-     * 
-     * @param state
-     *        Value for state
-     */
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    /**
-     * Getter for email
-     * 
-     * @return email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * Setter for email
-     * 
-     * @param email
-     *        Value for email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * Getter for phone
-     * 
-     * @return phone
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * Setter for phone
-     * 
-     * @param phone
-     *        Value for phone
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    /**
-     * Getter for likesports
-     * 
-     * @return likesports
-     */
-    public boolean isLikesports() {
-        return likesports;
-    }
-
-    /**
-     * Setter for likesports
-     * 
-     * @param likesports
-     *        Value for likesports
-     */
-    public void setLikesports(boolean likesports) {
-        this.likesports = likesports;
-    }
-
-    /**
-     * Getter for liketheatre
-     * 
-     * @return liketheatre
-     */
-    public boolean isLiketheatre() {
-        return liketheatre;
-    }
-
-    /**
-     * Setter for liketheatre
-     * 
-     * @param liketheatre
-     *        Value for liketheatre
-     */
-    public void setLiketheatre(boolean liketheatre) {
-        this.liketheatre = liketheatre;
-    }
-
-    /**
-     * Getter for likeconcerts
-     * 
-     * @return likeconcerts
-     */
-    public boolean isLikeconcerts() {
-        return likeconcerts;
-    }
-
-    /**
-     * Setter for likeconcerts
-     * 
-     * @param likeconcerts
-     *        Value for likeconcerts
-     */
-    public void setLikeconcerts(boolean likeconcerts) {
-        this.likeconcerts = likeconcerts;
-    }
-
-    /**
-     * Getter for likejazz
-     * 
-     * @return likejazz
-     */
-    public boolean isLikejazz() {
-        return likejazz;
-    }
-
-    /**
-     * Setter for likejazz
-     * 
-     * @param likejazz
-     *        Value for likejazz
-     */
-    public void setLikejazz(boolean likejazz) {
-        this.likejazz = likejazz;
-    }
-
-    /**
-     * Getter for likeclassical
-     * 
-     * @return likeclassical
-     */
-    public boolean isLikeclassical() {
-        return likeclassical;
-    }
-
-    /**
-     * Setter for likeclassical
-     * 
-     * @param likeclassical
-     *        Value for likeclassical
-     */
-    public void setLikeclassical(boolean likeclassical) {
-        this.likeclassical = likeclassical;
-    }
-
-    /**
-     * Getter for likeopera
-     * 
-     * @return likeopera
-     */
-    public boolean isLikeopera() {
-        return likeopera;
-    }
-
-    /**
-     * Setter for likeopera
-     * 
-     * @param likeopera
-     *        Value for likeopera
-     */
-    public void setLikeopera(boolean likeopera) {
-        this.likeopera = likeopera;
-    }
-
-    /**
-     * Getter for likerock
-     * 
-     * @return likerock
-     */
-    public boolean isLikerock() {
-        return likerock;
-    }
-
-    /**
-     * Setter for likerock
-     * 
-     * @param likerock
-     *        Value for likerock
-     */
-    public void setLikerock(boolean likerock) {
-        this.likerock = likerock;
-    }
-
-    /**
-     * Getter for likevegas
-     * 
-     * @return likevegas
-     */
-    public boolean isLikevegas() {
-        return likevegas;
-    }
-
-    /**
-     * Setter for likevegas
-     * 
-     * @param likevegas
-     *        Value for likevegas
-     */
-    public void setLikevegas(boolean likevegas) {
-        this.likevegas = likevegas;
-    }
-
-    /**
-     * Getter for likebroadway
-     * 
-     * @return likebroadway
-     */
-    public boolean isLikebroadway() {
-        return likebroadway;
-    }
-
-    /**
-     * Setter for likebroadway
-     * 
-     * @param likebroadway
-     *        Value for likebroadway
-     */
-    public void setLikebroadway(boolean likebroadway) {
-        this.likebroadway = likebroadway;
-    }
-
-    /**
-     * Getter for likemusicals
-     * 
-     * @return likemusicals
-     */
-    public boolean isLikemusicals() {
-        return likemusicals;
-    }
-
-    /**
-     * Setter for likemusicals
-     * 
-     * @param likemusicals
-     *        Value for likemusicals
-     */
-    public void setLikemusicals(boolean likemusicals) {
-        this.likemusicals = likemusicals;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((city == null) ? 0 : city.hashCode());
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
-        result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
-        result = prime * result + (likebroadway ? 1231 : 1237);
-        result = prime * result + (likeclassical ? 1231 : 1237);
-        result = prime * result + (likeconcerts ? 1231 : 1237);
-        result = prime * result + (likejazz ? 1231 : 1237);
-        result = prime * result + (likemusicals ? 1231 : 1237);
-        result = prime * result + (likeopera ? 1231 : 1237);
-        result = prime * result + (likerock ? 1231 : 1237);
-        result = prime * result + (likesports ? 1231 : 1237);
-        result = prime * result + (liketheatre ? 1231 : 1237);
-        result = prime * result + (likevegas ? 1231 : 1237);
-        result = prime * result + ((phone == null) ? 0 : phone.hashCode());
-        result = prime * result + ((state == null) ? 0 : state.hashCode());
-        result = prime * result + userid;
-        result = prime * result + ((username == null) ? 0 : username.hashCode());
+        result = prime * result + ((timestamp == null) ? 0 : timestamp.hashCode());
+        result = prime * result + ((value == null) ? 0 : value.hashCode());
+        result = prime * result + ((devicename == null) ? 0 : devicename.hashCode());
         return result;
     }
 
@@ -517,86 +175,25 @@ public class KinesisMessageModel implements Serializable {
             return false;
         }
         KinesisMessageModel other = (KinesisMessageModel) obj;
-        if (city == null) {
-            if (other.city != null) {
+        if (timestamp == null) {
+            if (other.timestamp != null) {
                 return false;
             }
-        } else if (!city.equals(other.city)) {
+        } else if (!timestamp.equals(other.timestamp)) {
             return false;
         }
-        if (email == null) {
-            if (other.email != null) {
+        if (value == null) {
+            if (other.value != null) {
                 return false;
             }
-        } else if (!email.equals(other.email)) {
+        } else if (!value.equals(other.value)) {
             return false;
         }
-        if (firstname == null) {
-            if (other.firstname != null) {
+        if (devicename == null) {
+            if (other.devicename != null) {
                 return false;
             }
-        } else if (!firstname.equals(other.firstname)) {
-            return false;
-        }
-        if (lastname == null) {
-            if (other.lastname != null) {
-                return false;
-            }
-        } else if (!lastname.equals(other.lastname)) {
-            return false;
-        }
-        if (likebroadway != other.likebroadway) {
-            return false;
-        }
-        if (likeclassical != other.likeclassical) {
-            return false;
-        }
-        if (likeconcerts != other.likeconcerts) {
-            return false;
-        }
-        if (likejazz != other.likejazz) {
-            return false;
-        }
-        if (likemusicals != other.likemusicals) {
-            return false;
-        }
-        if (likeopera != other.likeopera) {
-            return false;
-        }
-        if (likerock != other.likerock) {
-            return false;
-        }
-        if (likesports != other.likesports) {
-            return false;
-        }
-        if (liketheatre != other.liketheatre) {
-            return false;
-        }
-        if (likevegas != other.likevegas) {
-            return false;
-        }
-        if (phone == null) {
-            if (other.phone != null) {
-                return false;
-            }
-        } else if (!phone.equals(other.phone)) {
-            return false;
-        }
-        if (state == null) {
-            if (other.state != null) {
-                return false;
-            }
-        } else if (!state.equals(other.state)) {
-            return false;
-        }
-        if (userid != other.userid) {
-            return false;
-        }
-        if (username == null) {
-            if (other.username != null) {
-                return false;
-            }
-        } else if (!username.equals(other.username)) {
+        } else if (!devicename.equals(other.devicename)) {
             return false;
         }
         return true;

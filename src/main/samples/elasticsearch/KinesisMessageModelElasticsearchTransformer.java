@@ -41,7 +41,7 @@ public abstract class KinesisMessageModelElasticsearchTransformer extends Elasti
     public ElasticsearchObject fromClass(KinesisMessageModel record) throws IOException {
         String index = INDEX_NAME;
         String type = record.getClass().getSimpleName();
-        String id = Integer.toString(record.getUserid());
+        String id = record.getDevicename();
         String source = null;
         boolean create = true;
         try {

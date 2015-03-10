@@ -312,9 +312,9 @@ public abstract class KinesisConnectorExecutor<T, U> extends KinesisConnectorExe
     private static List<String> getKinesisMessageModelFields() {
         List<String> fields = new ArrayList<String>();
         fields.add("userid integer not null distkey sortkey");
-        fields.add("username char(8)");
-        fields.add("firstname varchar(30)");
-        fields.add("lastname varchar(30)");
+        fields.add("devicename char(8)");
+        fields.add("timestamp varchar(30)");
+        fields.add("value varchar(30)");
         fields.add("city varchar(30)");
         fields.add("state char(2)");
         fields.add("email varchar(100)");

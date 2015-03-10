@@ -41,24 +41,9 @@ public class KinesisMessageModelDynamoDBTransformer extends
     @Override
     public Map<String, AttributeValue> fromClass(KinesisMessageModel message) {
         Map<String, AttributeValue> item = new HashMap<String, AttributeValue>();
-        putIntegerIfNonempty(item, "user_id", message.userid);
-        putStringIfNonempty(item, "username", message.username);
-        putStringIfNonempty(item, "firstname", message.firstname);
-        putStringIfNonempty(item, "lastname", message.lastname);
-        putStringIfNonempty(item, "city", message.city);
-        putStringIfNonempty(item, "state", message.state);
-        putStringIfNonempty(item, "email", message.email);
-        putStringIfNonempty(item, "phone", message.phone);
-        putBoolIfNonempty(item, "likesports", message.likesports);
-        putBoolIfNonempty(item, "liketheatre", message.liketheatre);
-        putBoolIfNonempty(item, "likeconcerts", message.likeconcerts);
-        putBoolIfNonempty(item, "likejazz", message.likejazz);
-        putBoolIfNonempty(item, "likeclassical", message.likeclassical);
-        putBoolIfNonempty(item, "likeopera", message.likeopera);
-        putBoolIfNonempty(item, "likerock", message.likerock);
-        putBoolIfNonempty(item, "likevegas", message.likevegas);
-        putBoolIfNonempty(item, "likebroadway", message.likebroadway);
-        putBoolIfNonempty(item, "likemusicals", message.likemusicals);
+        putStringIfNonempty(item, "devicename", message.devicename);
+        putStringIfNonempty(item, "timestamp", message.timestamp);
+        putStringIfNonempty(item, "value", message.value);
         return item;
     }
 
